@@ -2,8 +2,6 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 
-// const Character = require("../models/Character");
-
 router.get("/characters", async (req, res) => {
   try {
     const characters = await axios.get(
