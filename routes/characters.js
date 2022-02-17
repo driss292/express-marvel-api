@@ -7,7 +7,14 @@ const router = express.Router();
 router.get("/characters", async (req, res) => {
   try {
     const characters = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`,
+      {
+        params: {
+          apiKey: process.env.MARVEL_API_KEY,
+          name: req.query.name,
+          skip: (req.query.page - 1) * 100,
+        },
+      }
     );
     res.json(characters.data);
   } catch (error) {
