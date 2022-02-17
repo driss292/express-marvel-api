@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const formidable = require("express-formidable");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
 
-mongoose.connect("mongodb://localhost/projet-marvel");
+// mongoose.connect("mongodb://localhost/projet-marvel");
 
 const app = express();
 app.use(cors());

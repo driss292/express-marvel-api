@@ -12,7 +12,7 @@ router.get("/comics", async (req, res) => {
       {
         params: {
           apiKey: process.env.MARVEL_API_KEY,
-          name: req.query.name,
+          title: req.query.title,
           skip: (req.query.page - 1) * 100,
         },
       }
