@@ -1,5 +1,4 @@
 const express = require("express");
-const axios = require("axios");
 const router = express.Router();
 const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
@@ -48,11 +47,9 @@ router.post("/user/login", async (req, res) => {
     if (user === null) {
       res.status(401).json({ message: "UNAUTHORIZED !!!" });
     } else {
-      //   console.log(user.hash, "hash à comparer");
       const newHash = SHA256(req.fields.password + user.salt).toString(
         encBase64
       );
-      //   console.log(newHash, "Mon nouveau hash");
       if (user.hash === newHash) {
         res.json({
           _id: user._id,
