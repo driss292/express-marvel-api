@@ -32,7 +32,7 @@ router.post("/user/signup", async (req, res) => {
           _id: newUser._id,
           email: newUser.email,
           token: newUser.token,
-          account: newUser.account,
+          username: newUser.username,
         });
       }
     }
